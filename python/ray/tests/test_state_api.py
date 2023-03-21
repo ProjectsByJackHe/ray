@@ -1773,6 +1773,16 @@ def test_cli_apis_sanity_check(ray_start_cluster):
     wait_for_condition(
         lambda: verify_output(ray_list, ["actors"], ["Stats:", "Table:", "ACTOR_ID"])
     )
+
+    # test list tasks
+    wait_for_condition(
+        lambda: verify_output(ray_list, ["tasks"], ["Stats:", "Table:", "TASK_ID"])
+    )
+
+    wait_for_condition(
+        lambda: verify_output(ray_list, ["actors"], ["Stats:", "Table:", "ACTOR_ID"])
+    )
+
     # TODO(sang): Enable it.
     # wait_for_condition(
     #     lambda: verify_output(
